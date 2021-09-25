@@ -1,12 +1,6 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import Image from "next/image";
-import { Container3 } from "../components/Container3";
-import { Container2 } from "../components/Container2";
-import { Navbar } from "../components/Navbar";
-import { useEffect, useState } from "react";
-import { Dropdown } from "../components/Dropdown";
-import Login from "../components/login";
+import Login from "../components/Login";
 
 const Home: NextPage = () => {
   return (
