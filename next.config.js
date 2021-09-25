@@ -4,6 +4,7 @@ module.exports = {
     domains: [
       "firebasestorage.googleapis.com",
       "avatars.githubusercontent.com",
+      "www.unsplash.com",
     ],
   },
 };
