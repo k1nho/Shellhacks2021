@@ -1,8 +1,10 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import { Container2 } from "../components/Container2";
+import Stream from "../components/Stream";
 
 const page2: NextPage = () => {
+
+  
   return (
     <div className="min-h-screen ">
       <Head>
@@ -11,8 +13,8 @@ const page2: NextPage = () => {
         <meta name=" author" content="default author" />
         <meta name="description" content=" page 2 description " />
       </Head>
-      <Container2 />
       This is page 2
+     <Stream/> 
     </div>
   );
 };

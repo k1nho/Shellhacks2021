@@ -2,21 +2,10 @@ import type { NextPage } from "next";
 import Head from "next/head";
 // @ts-ignore
 import { useEffect, useState } from "react";
-import { Container2 } from "../components/Container2";
+import {Upload} from "../components/Upload"
+import {Video} from "../components/Video"
 
 const page1: NextPage = () => {
-  const [user, setUser] = useState("");
-
-  useEffect(() => {
-    const getName = async () => {
-      const response = await fetch("/api/get", {
-        headers: { Accept: "application/json" },
-      });
-      const parseResponse = await response.json();
-      setUser(parseResponse.name);
-    };
-    getName();
-  }, [user]);
 
   return (
     <div className="min-h-screen ">
@@ -26,7 +15,14 @@ const page1: NextPage = () => {
         <meta name=" author" content="default author" />
         <meta name="description" content=" page 1 description " />
       </Head>
-      <Container2 user={user} />
+    <main className="flex h-screen justify-center items-center text-white ">
+        <div className="text-center bg-yellow-500 p-10 rounded-lg shadow-2xl">
+          <h1 className="text-3xl font-bold">
+            Creatt Video Upload
+          </h1>
+          <Upload />
+        </div>
+      </main> 
     </div>
   );
 };
