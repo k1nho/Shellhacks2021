@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import Login from "../components/Login";
+import { Container2 } from "../components/Container2";
 
 const Home: NextPage = () => {
   return (
@@ -15,8 +15,7 @@ const Home: NextPage = () => {
         />
         <meta name="description" content=" Page description " />
       </Head>
-
-      <Login />
+      <Container2 />
     </div>
   );
 };
