@@ -6,17 +6,18 @@ const page2: NextPage = () => {
 
   
   return (
-    <div className="min-h-screen ">
+    <div className="min-h-screen bg-gray-700">
       <Head>
-        <title>page 2</title>
+        <title>Creatt | Feed</title>
         <meta charSet="utf-8" />
         <meta name=" author" content="default author" />
         <meta name="description" content=" page 2 description " />
       </Head>
-      This is page 2
      <Stream/> 
     </div>
   );
 };
+
+
 
 export default page2;

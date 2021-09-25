@@ -43,7 +43,7 @@ export const Navbar: React.FC<Iprops> = ({ toggle, isOpen }) => {
     <div className="navColor sticky top-0 z-50 bg-gray-800">
       <div className="flex items-center justify-between md:justify-between mx-auto w-10/12 py-4 navTextColor">
         <h1 className="navTitle">
-          <Link href="/">My Page</Link>
+          <Link href="/">Creatt</Link>
         </h1>
         <div className="px-4 cursor-pointer md:hidden " onClick={toggle}>
           {isOpen ? (
@@ -83,13 +83,13 @@ export const Navbar: React.FC<Iprops> = ({ toggle, isOpen }) => {
             <a className="focusText">Home</a>
           </Link>
           <Link href="/page1">
-            <a className="focusText">Page1</a>
+            <a className="focusText">Upload</a>
           </Link>
           <Link href="/page2">
-            <a className="focusText">Page2</a>
+            <a className="focusText">Feed</a>
           </Link>
           <Link href="/page3">
-            <a className="focusText">Page3</a>
+            <a className="focusText">Dashboard</a>
           </Link>
           {authButton}
         </div>

@@ -3,14 +3,13 @@ import Head from "next/head";
 // @ts-ignore
 import { useEffect, useState } from "react";
 import {Upload} from "../components/Upload"
-import {Video} from "../components/Video"
 
 const page1: NextPage = () => {
 
   return (
-    <div className="min-h-screen ">
+    <div className="min-h-screen bg-gray-800">
       <Head>
-        <title>page 1</title>
+        <title>Creatt | Upload</title>
         <meta charSet="utf-8" />
         <meta name=" author" content="default author" />
         <meta name="description" content=" page 1 description " />

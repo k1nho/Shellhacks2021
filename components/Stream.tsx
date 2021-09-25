@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Image from "next/image";
 import {Video} from "../components/Video"
 
 const Stream = () => {
@@ -17,8 +16,8 @@ const Stream = () => {
 
   return (
     
-    <div>
-      {videosIds.length !== 0 ?  videosIds.map((id: string) => (<div>
+    <div className= "grid grid-cols-12">
+      {videosIds.length !== 0 ?  videosIds.map((id: string) => (<div className="col-span-12 md:col-span-4">
         <Video publicId = {id}/>
       </div>)) : <>no</>}
     </div>
