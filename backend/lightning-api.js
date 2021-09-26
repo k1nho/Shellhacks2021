@@ -20,23 +20,10 @@ function apiCall(node, path, macaroon, body = '', method = 'GET') {
 			'Grpc-Metadata-macaroon': macaroon,
 		},
 		'method': method,
-	
 	}
-
-	if(method !== 'GET'){
-		 options = {
-		'url': node + path,
-		// Work-around for self-signed certificates.
-		'rejectUnauthorized': false,
-		'json': true,
-		'headers': {
-			'Grpc-Metadata-macaroon': macaroon,
-		},
-		'method': method,
-		'body': body
-	}
-	}
-	return fetch(node +path,options);	
+	if(body) options.body = body;
+	console.log(node + path);
+	return fetch(node + path,options);	
 }
 
 export function getBalance(node, macaroon) {
