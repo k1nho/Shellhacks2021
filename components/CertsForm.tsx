@@ -15,7 +15,9 @@ export const CertsForm: React.FC<Iprops> = ({email}) => {
         await db.collection("users").doc(email).update({
             resthost : resthost,
             macaroon : macaroon,
-        })
+        });
+        setMacaroon("");
+        setRestHost("")
     }
     return (
         

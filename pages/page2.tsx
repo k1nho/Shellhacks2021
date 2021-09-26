@@ -10,6 +10,7 @@ export default function page2({session}: InferGetServerSidePropsType<typeof getS
     return <Login/>
   }
   
+  
   return (
     <div className="min-h-screen bg-gray-700">
       <Head>

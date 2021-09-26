@@ -15,7 +15,7 @@ export const hasValidMacaroon = async (email) => {
     return false;
   }
   
-  const node = doc.data().node;
+  const node = doc.data().resthost;
   const macaroon = doc.data().macaroon;
   
   if(node && macaroon) {
