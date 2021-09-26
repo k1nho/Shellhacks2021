@@ -35,20 +35,27 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   if (session != null) {
     const name = session?.user?.name;
     const email = session?.user?.email;
+    const resthost = "";
+    const macaroon = ""
     var docData = {
       name,
       email,
+      resthost,
+      macaroon
     };
+    
 
     const addtodb = await validate(email);
 
-    if (addtodb) {
-      db.collection("users")
-        .doc()
-        .set(docData)
-        .then(() => {
-          console.log("Document successfully written!");
-        });
+    if(email){
+      if (addtodb) {
+        db.collection("users")
+          .doc(email)
+          .set(docData)
+          .then(() => {
+            console.log("Document successfully written!");
+          });
+      }
     }
   }
 
