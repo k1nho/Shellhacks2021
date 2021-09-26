@@ -8,7 +8,7 @@ export const Header = () => {
       </div>
 
       <div className="col-span-12 md:col-span-5 justify-items-center items-center text-white space-y-4">
-        <h1 className="text-xl text-left font-bold text-5xl mb-3">
+        <h1 className="text-left font-bold text-5xl mb-3">
           The <span className="text-yellow-500">Bitcoin</span> Video Streaming
           Platform
         </h1>

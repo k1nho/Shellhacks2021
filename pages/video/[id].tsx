@@ -4,52 +4,49 @@ import Link from "next/dist/client/link";
 import { createInvoice } from "../../backend/api-helper";
 import { db } from "../../firebase";
 
-export default function post({videoID, rhash, paymentreq}: {videoID : string, rhash:any, paymentreq:any}) {
-  return <div className =" min-h-screen grid grid-cols-12 justify-items-center items-center bg-gray-800">
-      <video
-          className= "col-span-12 bg-gray-200 p-5 rounded-md"
+export default function post({ videoID }: { videoID: string }) {
+  return (
+    <div className=" min-h-screen justify-items-center items-center bg-gray-800">
+      <div className="w-8/12 mx-auto">
+        <div className="flex justify-between py-10">
+          <Link href="/page2">
+            <button className="flex items-center rounded-md bg-green-500 hover:green-400 p-0 px-2">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5 mr-2"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z"
+                  clipRule="evenodd"
+                />
+              </svg>{" "}
+              <p>Back to Feed</p>
+            </button>
+          </Link>
+          <div className="col-span-6 bg-blue-500 p-4 text-lgi rounded-md">
+            <h1>BTC support rate: 0.05sats/sec</h1>
+          </div>
+        </div>
+        <video
+          className="col-span-12rounded-md mx-auto"
           autoPlay
           controls
           muted
           src={`https://res.cloudinary.com/creatt/video/upload/w_1000,h_500/vc_auto/creatt/${videoID}`}
         ></video>
-          <Link href ="/page2">
-        <button className= "rounded-md bg-yellow-500 hover:yellow-400 p-2 col-span-6">
-        Rhash: {rhash}
-        paymentreq : {paymentreq}
-          Back to Feed
-          </button>
-          </Link>
-          <div className="col-span-6 bg-gray-200 p-4 text-lgi rounded-md">
-            <h1>BTC support rate: 0.05sats/sec</h1>
-          </div>
-  </div>;
+      </div>
+    </div>
+  );
 }
 
-export const getServerSideProps:GetServerSideProps = async(context) => {
-    const videoID = context.params?.id;
-    let resthost = "";
-    let macaroon = "";
-    let name ="";
+export const getServerSideProps: GetServerSideProps = async ({ params }) => {
+  const videoID = params?.id;
 
-    const session = await getSession(context);
+  return { props: { videoID } };
+};
 
-    const email = session?.user?.email;
-    if(email){
-      const data = await db.collection("users").doc(email).get();
-      const userData = data.data();
-      if(userData != undefined){
-        name = userData.name
-         macaroon = userData.macaroon;
-         resthost = userData.resthost;
-      }
-    }
-
-    const invoice = await createInvoice(resthost, macaroon, `gift from ${name}`, 25);
-    const rhash = invoice.rhash;
-    const paymentreq = invoice.payment_request;
-
-
-    return {props : {videoID, rhash, paymentreq}}
-}
+         
 
