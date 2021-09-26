@@ -25,7 +25,7 @@ export const CertsForm: React.FC<Iprops> = ({email}) => {
       <div className="max-w-sm w-full space-y-8">
         <div>
           <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-90">
-            Please the necessary fields to use the platform
+            Credentials Setup
           </h2>
         
         </div>

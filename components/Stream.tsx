@@ -5,7 +5,7 @@ import { Router } from "next/dist/client/router";
 import Login from "./Login";
 
 interface Iprops {
-  userEmail : string
+  userEmail? : string
 }
 
 export const Stream: React.FC<Iprops> = ({userEmail}) => {
@@ -19,22 +19,9 @@ export const Stream: React.FC<Iprops> = ({userEmail}) => {
     setVideosIds(data);
   }
 
-  const testValidMacaroon = async() => {
-    const res = await hasValidMacaroon(userEmail);
-    setCertValid(res);
-  }
 
-  testValidMacaroon();
     hydrateIds();
   }, []);
-
-  
-
-  
-
-  if(!certValid){
-    return <Login/>
-  }
 
   return (
     

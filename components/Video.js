@@ -9,6 +9,7 @@ export function Video({ publicId }) {
   if (videoPublicId.length === 0) {
     return <></>;
   }
+
   return (
     <div className="">
 
@@ -19,7 +20,7 @@ export function Video({ publicId }) {
           src={`https://res.cloudinary.com/creatt/video/upload/w_400,h_200,q_auto/vc_auto/creatt/${videoPublicId}`}
         ></video>
             <Link href = {`/video/${videoPublicId}`}>
-        <button className=" m-4 px-2 py-2 rounded-md bg-yellow-500" >
+        <button className=" m-4 px-2 py-2 rounded-md bg-yellow-500 font-bold" >
             
             CreattWatch
             </button>

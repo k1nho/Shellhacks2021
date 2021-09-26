@@ -1,7 +1,6 @@
 import type { GetServerSideProps, InferGetServerSidePropsType, NextPage } from "next";
 import { getSession } from "next-auth/client";
 import Head from "next/head";
-import { hasValidMacaroon } from "../authlib/validate";
 import Login from "../components/Login";
 import {Stream} from "../components/Stream";
 
