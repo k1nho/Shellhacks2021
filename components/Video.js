@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Link from "next/dist/client/link";
+import VideoThumbnail from "react-video-thumbnail";
 
 export function Video({ publicId }) {
   const [videoPublicId, setPublicId] = useState(publicId);
@@ -11,21 +12,19 @@ export function Video({ publicId }) {
   }
 
   return (
-    <div className="">
-
-        <video
-          className={`${videoPublicId.length === 0 ? "hidden" : "block m-4"}`}
-          controls
-          muted
-          src={`https://res.cloudinary.com/creatt/video/upload/w_400,h_200,q_auto/vc_auto/creatt/${videoPublicId}`}
-        ></video>
-            <Link href = {`/video/${videoPublicId}`}>
-        <button className=" m-4 px-2 py-2 rounded-md bg-yellow-500 font-bold" >
-            
-            CreattWatch
-            </button>
-            </Link>
-    </div>
+    <Link href={`/video/${videoPublicId}`}>
+      <div className="">
+        <VideoThumbnail
+          videoUrl={`https://res.cloudinary.com/creatt/video/upload/w_400,h_200,q_auto/vc_auto/creatt/${videoPublicId}`}
+          className="min-w-full"
+        />
+        <div className="mt-3">
+          <button className="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">
+            Watch at 0.05 SATS/sec
+          </button>
+        </div>
+      </div>
+    </Link>
 
   );
 }

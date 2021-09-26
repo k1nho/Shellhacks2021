@@ -8,7 +8,6 @@ export function Upload() {
   const [showVideo, setShowVideo] = useState(false);
   const [publicId, setPublicId] = useState("");
 
-
   const onChange = async (event) => {
     setShowSpinner(true);
     event.preventDefault();
@@ -19,7 +18,7 @@ export function Upload() {
     try {
       const response = await fetch("/api/upload", {
         method: "POST",
-        body: formData
+        body: formData,
       });
       const data = await response.json();
       setPublicId(data.public_id);
