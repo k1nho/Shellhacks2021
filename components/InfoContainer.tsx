@@ -13,7 +13,7 @@ export const InfoContainer = () => {
           creators. In Creatt, we believe in the grow of our local communities
           through an instantanious monetization model, so that you can get
           rewarded in accordance to your effort. That way the users enjoy unique
-          content from the creators
+          content from their favorite creators, and creators have clear visibility on their fans.
         </p>
       </div>
       <div className=" col-span-12 md:col-span-6 justify-items-center items-center bg-white rounded-full p-5">

@@ -12,11 +12,11 @@ export const Header = () => {
           The <span className="text-yellow-500">Bitcoin</span> Video Streaming
           Platform
         </h1>
-        <p className="text-lg text-gray-500">
+        <p className="text-lg text-gray-100">
           Creatt is here to support local creators and established influencers
           alike! by using the Lightning network our team provides instant and
           automatic bitcoin transaction on watch time, so that you can get
-          exclusive creator content from anywhere in the world 🌎.
+          exclusive creator content from anywh 🌎.
         </p>
       </div>
     </div>
