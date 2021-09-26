@@ -1,13 +1,14 @@
 import type { GetServerSideProps, InferGetServerSidePropsType, NextPage } from "next";
 import { getSession } from "next-auth/client";
 import Head from "next/head";
+import { Authenticate } from "../components/Authenticate";
 import Login from "../components/Login";
 import {Stream} from "../components/Stream";
 
 export default function page2({session}: InferGetServerSidePropsType<typeof getServerSideProps>) {
 
   if(!session){
-    return <Login/>
+    return <Authenticate/>
   }
  
   

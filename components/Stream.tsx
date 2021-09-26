@@ -4,6 +4,7 @@ import {hasValidMacaroon} from "../authlib/validate"
 import { Router } from "next/dist/client/router";
 import Login from "./Login";
 import { CertsForm } from "./CertsForm";
+import { Authenticate } from "./Authenticate";
 
 interface Iprops {
   userEmail? : string
@@ -32,7 +33,7 @@ export const Stream: React.FC<Iprops> = ({userEmail}) => {
   }, []);
 
 if(certValid === false){
-  return <Login/>
+  return <Authenticate/>
 }
   
   return (
