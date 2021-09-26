@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { signIn, signOut, useSession } from "next-auth/client";
-
+import {Logosvg} from "../components/Logosvg"
 interface Iprops {
   toggle: () => void;
   isOpen: boolean;
@@ -43,7 +43,7 @@ export const Navbar: React.FC<Iprops> = ({ toggle, isOpen }) => {
     <div className="navColor sticky top-0 z-50 bg-gray-800">
       <div className="flex items-center justify-between md:justify-between mx-auto w-10/12 py-4 navTextColor">
         <h1 className="navTitle">
-          <Link href="/">Creatt</Link>
+          <Link href="/"><Logosvg/></Link>
         </h1>
         <div className="px-4 cursor-pointer md:hidden " onClick={toggle}>
           {isOpen ? (

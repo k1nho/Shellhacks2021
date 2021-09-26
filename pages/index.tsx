@@ -2,6 +2,8 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import Login from "../components/Login";
 import {Header} from "../components/Home"
+import { InfoContainer } from "../components/InfoContainer";
+import { FooterContainer } from "../components/FooterContainer";
 
 const Home: NextPage = () => {
   return (
@@ -17,6 +19,8 @@ const Home: NextPage = () => {
         <meta name="description" content=" Page description " />
       </Head>
       <Header/>
+      <InfoContainer/>
+      <FooterContainer/>
     </div>
   );
 };

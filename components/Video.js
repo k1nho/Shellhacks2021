@@ -18,12 +18,12 @@ export function Video({ publicId }) {
           muted
           src={`https://res.cloudinary.com/creatt/video/upload/w_400,h_200,q_auto/vc_auto/creatt/${videoPublicId}`}
         ></video>
-        <button className=" m-4 px-2 py-2 rounded-md bg-yellow-500" >
             <Link href = {`/video/${videoPublicId}`}>
+        <button className=" m-4 px-2 py-2 rounded-md bg-yellow-500" >
             
             CreattWatch
-            </Link>
             </button>
+            </Link>
     </div>
 
   );

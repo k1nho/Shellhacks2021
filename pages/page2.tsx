@@ -1,9 +1,14 @@
-import type { NextPage } from "next";
+import type { GetServerSideProps, InferGetServerSidePropsType, NextPage } from "next";
+import { getSession } from "next-auth/client";
 import Head from "next/head";
+import Login from "../components/Login";
 import Stream from "../components/Stream";
 
-const page2: NextPage = () => {
+export default function page2({session}: InferGetServerSidePropsType<typeof getServerSideProps>) {
 
+  if(!session){
+    return <Login/>
+  }
   
   return (
     <div className="min-h-screen bg-gray-700">
@@ -18,6 +23,11 @@ const page2: NextPage = () => {
   );
 };
 
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  //Get user
+  const session = await getSession(context);
 
+  return {props : {session}}
 
-export default page2;
+};
+
