@@ -1,15 +1,16 @@
 import type { GetServerSideProps, InferGetServerSidePropsType, NextPage } from "next";
 import { getSession } from "next-auth/client";
 import Head from "next/head";
+import { hasValidMacaroon } from "../authlib/validate";
 import Login from "../components/Login";
-import Stream from "../components/Stream";
+import {Stream} from "../components/Stream";
 
 export default function page2({session}: InferGetServerSidePropsType<typeof getServerSideProps>) {
 
   if(!session){
     return <Login/>
   }
-  
+ 
   
   return (
     <div className="min-h-screen bg-gray-700">
@@ -19,7 +20,7 @@ export default function page2({session}: InferGetServerSidePropsType<typeof getS
         <meta name=" author" content="default author" />
         <meta name="description" content=" page 2 description " />
       </Head>
-     <Stream/> 
+     <Stream userEmail = {session.user.email}/> 
     </div>
   );
 };

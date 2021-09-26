@@ -19,10 +19,9 @@ export const hasValidMacaroon = async (email) => {
   const macaroon = doc.data().macaroon;
   
   if(node && macaroon) {
-    const ret = await getBalance(node, macaroon).catch((error) => {
-      console.error(error.error);
-	});
-	return ret;
+    const ret = await getBalance(node, macaroon)
+    const parseRes = await ret.json()
+	  return parseRes;
   }
 
   return false;

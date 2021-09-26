@@ -1,8 +1,16 @@
 import React, { useEffect, useState } from "react";
 import {Video} from "../components/Video"
+import {hasValidMacaroon} from "../authlib/validate"
+import { Router } from "next/dist/client/router";
+import Login from "./Login";
 
-const Stream = () => {
+interface Iprops {
+  userEmail : string
+}
+
+export const Stream: React.FC<Iprops> = ({userEmail}) => {
   const [videosIds, setVideosIds] = useState([]);
+  const [certValid, setCertValid] = useState();
 
   useEffect(()=> {
     const hydrateIds = async() =>{
@@ -11,8 +19,22 @@ const Stream = () => {
     setVideosIds(data);
   }
 
+  const testValidMacaroon = async() => {
+    const res = await hasValidMacaroon(userEmail);
+    setCertValid(res);
+  }
+
+  testValidMacaroon();
     hydrateIds();
-  }, [])
+  }, []);
+
+  
+
+  
+
+  if(!certValid){
+    return <Login/>
+  }
 
   return (
     
@@ -23,5 +45,3 @@ const Stream = () => {
     </div>
   );
 };
-
-export default Stream;

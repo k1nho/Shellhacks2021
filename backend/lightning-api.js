@@ -1,4 +1,4 @@
-import request from 'request-promise-native';
+// import request from 'request-promise-native';
 
 /**
  * Makes an API call using request.
@@ -10,7 +10,21 @@ import request from 'request-promise-native';
  * @param {string} mthd The HTTP method.
  */
 function apiCall(node, path, macaroon, body = '', method = 'GET') {
+	
 	let options = {
+		'url': node + path,
+		// Work-around for self-signed certificates.
+		'rejectUnauthorized': false,
+		'json': true,
+		'headers': {
+			'Grpc-Metadata-macaroon': macaroon,
+		},
+		'method': method,
+	
+	}
+
+	if(method !== 'GET'){
+		 options = {
 		'url': node + path,
 		// Work-around for self-signed certificates.
 		'rejectUnauthorized': false,
@@ -21,7 +35,8 @@ function apiCall(node, path, macaroon, body = '', method = 'GET') {
 		'method': method,
 		'body': body
 	}
-	return request(options);	
+	}
+	return fetch(node +path,options);	
 }
 
 export function getBalance(node, macaroon) {
