@@ -5,7 +5,7 @@ import {Header} from "../components/Home"
 import { InfoContainer } from "../components/InfoContainer";
 import { FooterContainer } from "../components/FooterContainer";
 import { getSession } from "next-auth/client";
-import {validate} from "../authlib/validate";
+import {doesNotExist} from "../authlib/validate";
 import {db} from "../firebase"
 
 const Home: NextPage = () => {
@@ -45,7 +45,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     };
     
 
-    const addtodb = await validate(email);
+    const addtodb = await doesNotExist(email);
 
     if(email){
       if (addtodb) {
