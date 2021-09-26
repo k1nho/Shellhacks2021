@@ -6,10 +6,11 @@ import Head from "next/head";
 import { CertsForm } from "../components/CertsForm";
 import Login from "../components/Login";
 
-export default function page3({session}: InferGetServerSidePropsType<typeof getServerSideProps>) {
-
-  if(!session){
-    return <Login/>
+export default function page3({
+  session,
+}: InferGetServerSidePropsType<typeof getServerSideProps>) {
+  if (!session) {
+    return <Login />;
   }
 
   return (
@@ -29,7 +30,5 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   //Get user
   const session = await getSession(context);
 
-  return {props : {session}}
-
+  return { props: { session } };
 };
-
