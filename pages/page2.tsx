@@ -6,7 +6,7 @@ import type {
 import { getSession } from "next-auth/client";
 import Head from "next/head";
 import Login from "../components/Login";
-import Stream from "../components/Stream";
+import {Stream} from "../components/Stream";
 
 export default function page2({
   session,
@@ -24,7 +24,7 @@ export default function page2({
         <meta name="description" content=" page 2 description " />
       </Head>
       <div className="w-10/12 mx-auto">
-        <Stream />
+             <Stream userEmail = {session.user.email}/> 
       </div>
     </div>
   );

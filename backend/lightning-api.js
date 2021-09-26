@@ -9,19 +9,23 @@
  * @param {string} body Optional json body for the api call.
  * @param {string} mthd The HTTP method.
  */
-function apiCall(node, path, macaroon, body = "", method = "GET") {
-  let options = {
-    url: node + path,
-    // Work-around for self-signed certificates.
-    rejectUnauthorized: false,
-    json: true,
-    headers: {
-      "Grpc-Metadata-macaroon": macaroon,
-    },
-    method: method,
-    body: body,
-  };
-  return request(options);
+
+function apiCall(node, path, macaroon, body = '', method = 'GET') {
+	
+	let options = {
+		'url': node + path,
+		// Work-around for self-signed certificates.
+		'rejectUnauthorized': false,
+		'json': true,
+		'headers': {
+			'Grpc-Metadata-macaroon': macaroon,
+		},
+		'method': method,
+	}
+	if(body) options.body = body;
+	console.log(node + path);
+	return fetch(node + path,options);	
+
 }
 
 export function getBalance(node, macaroon) {

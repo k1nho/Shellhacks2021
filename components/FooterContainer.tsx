@@ -12,11 +12,8 @@ export const FooterContainer = () => {
           <h1 className="text-5xl text-left font-bold">
             For Creators by Creators
           </h1>
-          <p className="text-lg text-left text-gray-500">
-            Creatt is here to support local creators and established influencers
-            alike! by using the Lightning network our team provides instant
-            bitcoin transaction on watch time, so that you can get exclusive
-            creator content from anywhere in the world 🌎
+          <p className="text-lg text-left text-gray-100">
+            Creatt promotes a unique low-level entry barrier for creators around the world. We empower content creators by streamlining the monetization process, and allow our creator-centric platform to rate the efforts of your work without any algorithm involved.
           </p>
         </div>
       </div>

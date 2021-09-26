@@ -5,8 +5,6 @@ import type {
 } from "next";
 import { getSession } from "next-auth/client";
 import Head from "next/head";
-// @ts-ignore
-import { useEffect, useState } from "react";
 import Login from "../components/Login";
 import { Upload } from "../components/Upload";
 

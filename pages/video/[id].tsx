@@ -1,5 +1,8 @@
 import { GetServerSideProps } from "next";
+import { getSession, session } from "next-auth/client";
 import Link from "next/dist/client/link";
+import { createInvoice } from "../../backend/api-helper";
+import { db } from "../../firebase";
 
 export default function post({ videoID }: { videoID: string }) {
   return (
@@ -44,3 +47,6 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
 
   return { props: { videoID } };
 };
+
+         
+

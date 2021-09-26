@@ -10,6 +10,7 @@ export function Video({ publicId }) {
   if (videoPublicId.length === 0) {
     return <></>;
   }
+
   return (
     <Link href={`/video/${videoPublicId}`}>
       <div className="">
@@ -24,5 +25,6 @@ export function Video({ publicId }) {
         </div>
       </div>
     </Link>
+
   );
 }
