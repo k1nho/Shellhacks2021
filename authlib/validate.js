@@ -1,5 +1,5 @@
 import { db } from "../firebase";
-import { getBalance } from "../backend/lightning-api";
+import { getBalance } from "../backend/api-helper"
 import https from "https"
 
 export const doesNotExist = async (email) => {
@@ -21,20 +21,7 @@ export const hasValidMacaroon = async (email) => {
   
   
   if(node && macaroon) {
-	  
-	  const httpsAgent = new https.Agent({
-		rejectUnauthorized: false,
-	  });
-	
-      const response = await fetch("/api/getbalance", {
-        method: "POST",
-        body: JSON.stringify({"node": node, "macaroon": macaroon }),
-		headers: {
-			'Content-Type': 'application/json'
-		},
-		agent: httpsAgent
-      });
-      return await response.json();
+      return getBalance(node, macaroon);
   }
 
   return false;
